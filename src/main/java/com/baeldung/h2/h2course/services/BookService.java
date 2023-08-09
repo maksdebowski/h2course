@@ -25,4 +25,8 @@ public class BookService {
     public void add(Book book){
         bookRepository.save(book);
     }
+
+    public void saveAndFlush(Book book){
+        bookRepository.saveAndFlush(book);
+    }
 }

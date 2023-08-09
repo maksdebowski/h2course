@@ -26,4 +26,9 @@ public class BookController {
     public void findAll(){
         bookService.list();
     }
+
+    @PostMapping(value = "/flush", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void saveAndFlush(@RequestBody Book book){
+        bookService.saveAndFlush(book);
+    }
 }
