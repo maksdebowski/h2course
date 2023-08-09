@@ -1,11 +1,8 @@
 package com.baeldung.h2.h2course.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.UUID;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -15,7 +12,16 @@ public class Book {
     private Long id;
     private String name;
 
+    @ManyToMany
+    Set<Student> likes;
+
     public Book() {
+    }
+
+    public Book(Long id, String name, Set<Student> likes) {
+        this.id = id;
+        this.name = name;
+        this.likes = likes;
     }
 
     public Long getId() {
@@ -34,8 +40,14 @@ public class Book {
         this.name = name;
     }
 
-    public Book(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public Set<Student> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Set<Student> likes) {
+        this.likes = likes;
     }
 }
+
+
+
