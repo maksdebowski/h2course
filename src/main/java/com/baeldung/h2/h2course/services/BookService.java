@@ -21,10 +21,8 @@ public class BookService {
     public List<Book> list(){
         return bookRepository.findAll();
     }
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-    @PostMapping
-    public void add(@RequestBody Book books){
-        bookRepository.save(books);
+
+    public void add(Book book){
+        bookRepository.save(book);
     }
 }
